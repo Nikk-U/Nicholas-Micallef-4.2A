@@ -6,10 +6,11 @@ public class ObstaclePathing : MonoBehaviour
 {
     [SerializeField] List<Transform> waypoints;
     [SerializeField] float enemyMovment = 2f;
-
+    [SerializeField] WC WC;
     int waypointIndex = 0;
     private void Start()
     {
+        waypoints = WC.GetWaypoints();
         transform.position = waypoints[waypointIndex].transform.position;
     }
     private void Update()
@@ -22,7 +23,7 @@ public class ObstaclePathing : MonoBehaviour
         {
             var targetPosition = waypoints[waypointIndex].transform.position;
             targetPosition.z = 0f;
-            var enemyMovment = enemyMoveSpeed * Time.deltaTime;
+           
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, enemyMovment);
             if(transform.position == targetPosition)
             {
