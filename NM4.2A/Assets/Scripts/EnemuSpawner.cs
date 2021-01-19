@@ -22,11 +22,22 @@ public class EnemuSpawner : MonoBehaviour
     }
     private IEnumerator SpawnAllEnemiesInWave(WC wC)
     {
-        Instantiate(
+      var newEnemy = Instantiate(
             wC.GetEnemyPrefab(),
             wC.GetWaypoints()[0].transform.position,
             Quaternion.identity);
+        newEnemy.GetComponent<ObstaclePathing>().SetWaveConfig(wC);
 
         yield return new WaitForSeconds(wC.GetTimeBetweenSpawns());
     }
+
+    private IEnumerator SpawnAllWves()
+    {
+        foreach(WC currentWave in waveConfigScript)
+        {
+            yield return StartCoroutine(SpawnAllEnemiesInWave(currentWave));
+        }
+    }
 }
+
+

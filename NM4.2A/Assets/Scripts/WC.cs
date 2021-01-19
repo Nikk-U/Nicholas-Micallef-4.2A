@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class WC : ScriptableObject
 {
-    [SerializeField] float enemymoveSpeed = 0.5f;
+    [SerializeField] float enemyMoveSpeed = 0.5f;
 
     [SerializeField] GameObject enemyPrefab;
 
@@ -47,7 +47,7 @@ public class WC : ScriptableObject
     }
     public float GetEnemyMoveSpeed()
     {
-        return enemymoveSpeed;
+        return enemyMoveSpeed;
     }
 
 

@@ -23,7 +23,10 @@ public class ObstaclePathing : MonoBehaviour
         {
             var targetPosition = waypoints[waypointIndex].transform.position;
             targetPosition.z = 0f;
-           
+
+
+            var enemyMovement = WC.GetEnemyMoveSpeed() * Time.deltaTime;
+
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, enemyMovment);
             if(transform.position == targetPosition)
             {
@@ -33,7 +36,14 @@ public class ObstaclePathing : MonoBehaviour
         }
         else
         {
+            print(waypointIndex);
             Destroy(gameObject);
         }
+    }
+
+
+    public void SetWaveConfig(WC wcToSet)
+    {
+        WC = wcToSet;
     }
 }
