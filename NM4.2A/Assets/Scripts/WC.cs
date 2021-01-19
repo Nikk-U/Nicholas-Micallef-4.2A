@@ -19,7 +19,8 @@ public class WC : ScriptableObject
 
     [SerializeField] int numberOfEnemies = 5;
 
-
+    [SerializeField] AudioClip enemyDeathSound;
+    [SerializeField] [Range(0, 1)] float enemyDeathSoundVolume = 0.75f;
 
     public GameObject GetEnemyPrefab()
     {
