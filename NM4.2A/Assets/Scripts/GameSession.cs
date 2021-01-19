@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class GameSession : MonoBehaviour
 {
+    int score = 0;
     // Start is called before the first frame update
-    void Start()
+    
+
+    public  int GetScore()
     {
-        
+        return score;
+    }
+    public  void AddToScore(int scoreValue)
+    {
+        score += scoreValue;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetGame()
     {
-        
+        Destroy(gameObject);
     }
-}
+}  
